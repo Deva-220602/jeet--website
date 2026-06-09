@@ -1,86 +1,132 @@
-body{
- background-color:  rgb(4, 179, 170);
- overflow-y: auto;
- overflow-x: hidden;
-}
-.one{
-    background-color: rgba(255, 255, 255, 0.783);
-    color: darkolivegreen;
-    padding-left: 1%;
-    padding-top: 1%;
-    padding: 1%;
-    
-}
-.one :hover{
-   color: black;
+/* Modern font import and basic reset */
+@import url('https://googleapis.com');
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
-.one a{
+
+body {
+  background-color: #04b3aa;
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(177,93%,36%,1) 0px, transparent 50%),
+    radial-gradient(at 50% 0%, hsla(220,85%,57%,1) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(265,80%,60%,1) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, hsla(177,90%,25%,1) 0px, transparent 50%);
+  background-attachment: fixed;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+  
+
+
+/* Navigation Bar (Header) */
+.one {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px); /* Modern frosted glass effect */
+  padding: 15px 4%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.one a {
   text-decoration: none;
-  column-gap: 10px;
-  display:flex;
+  color: darkolivegreen;
+  font-weight: 600;
+  display: flex;
+  gap: 10px;
   flex-wrap: wrap;
+  transition: color 0.3s ease;
 }
-.two{
-  z-index: -1;      /* Places it behind other content */
+
+.one :hover {
+  color: #000;
 }
-.three{
+
+/* Menu links */
+.menus {
+  color: #222;
+  display: flex;
+  gap: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Hero Section */
+.three {
   color: aliceblue;
-  position: absolute;
-  top: 150px;
-  left: 500px;
+  position: relative; /* Changed from absolute for better mobile responsiveness */
+  margin: 100px auto;
+  max-width: 800px;
+  text-align: center;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Section backgrounds */
+#About, #Service, #Registration {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Grid layout for cards (Replaces former .four layout) */
+.four {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 40px 4%;
+}
+
+/* Smooth Images */
+.smooth-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover; /* Prevents image stretching */
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+
+.smooth-image:hover {
+  transform: scale(1.05); /* Zoom effect on hover */
+}
+
+/* Card Shadow Upgrades */
+.all {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.all:hover {
+  transform: translateY(-5px); /* Lift up effect on hover */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+
+
+/* 📱 Mobile Responsiveness */
+@media screen and (max-width: 700px) 
   
-}
-.menus{
-  color:black;
-  display:flex;
-  position: relative;
-  left: 65%;
-  column-gap: 10px;
-  text-decoration: none;
-}
-#About{
-  background-color: rgb(4, 179, 170);
 
-}
-#Service{
-   background-color:rgb(4, 179, 170);
-}
-#Registration{
-  background-color:rgb(4, 179, 170);
-  }
-
-.four{
-  justify-content: space-around;
-  margin-left: 1%;
-  display: flex;
-  flex-wrap: wrap;
+    
+  
 
   
-}
-.contacts{
-        background-color: aliceblue;
-             
-}
-.contacts a{
-  text-decoration: none;
-}
-.contacts :hover{
-  color: black;
-}
-.socialmedialogo{
-  background-color: white;
-  color: blueviolet;
+ 
 
-}
-.smooth-image{
-  width: 300px;
-            height: 200px;
-            /* Smooths the sharp corners */
-            border-radius: 15px; 
-}
-.all{
-  box-shadow: box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
