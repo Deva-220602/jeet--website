@@ -1,12 +1,13 @@
-CREATE TABLE jeet (
+DROP TABLE IF EXISTS users_table;
+
+CREATE TABLE users_table (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    company VARCHAR(100),
-    contact VARCHAR(20) NOT NULL,
+    company VARCHAR(100) NULL,
+    contact VARCHAR(50) NOT NULL, 
     email VARCHAR(100) NOT NULL,
-    address TEXT,
+    address TEXT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 
-SELECT * FROM jeet; 
