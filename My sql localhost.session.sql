@@ -1,4 +1,4 @@
-CREATE TABLE users_table (
+CREATE TABLE jeet (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     company VARCHAR(100) NULL,
