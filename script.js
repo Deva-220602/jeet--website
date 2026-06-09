@@ -42,7 +42,7 @@ app.post('/submit-form', (req, res) => {
 
     // SQL Query to save data into the MySQL database
     // (Note: Your table name is temporarily set as 'users_table')
-    const sqlQuery = "INSERT INTO jeet (name, company, contact, email, address) VALUES (?, ?, ?, ?, ?)";
+    const sqlQuery = "INSERT INTO users (name, company, contact, email, address) VALUES (?, ?, ?, ?, ?)";
     
     pool.query(sqlQuery, [name, company, contact, email, address], (err, result) => {
         if (err) {
