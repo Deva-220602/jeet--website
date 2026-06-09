@@ -1,11 +1,14 @@
+USE defaultdb;
+DROP TABLE IF EXISTS jeet;
 CREATE TABLE jeet (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    company VARCHAR(100) NULL,
-    contact VARCHAR(50) NOT NULL, 
+    company VARCHAR(100),
+    contact VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL,
-    address TEXT NULL,
+    address TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
 
 
