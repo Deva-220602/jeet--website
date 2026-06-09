@@ -4,6 +4,22 @@ const express = require('express');
 const mysql = require('mysql2'); // Connecting the mysql2 package
 
 const app = express();
+const createTableQuery = `
+CREATE TABLE IF NOT EXISTS jeet (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    company VARCHAR(100),
+    contact VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    address TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);`;
+
+pool.query(createTableQuery, (err, results) => {
+    if (err) console.error("Table creation error:", err);
+    else console.log("Table 'jeet' verified/created successfully!");
+});
+
 
 // Aiven Online Database Connection Pool
 const pool = mysql.createPool({
