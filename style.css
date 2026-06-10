@@ -117,7 +117,9 @@ body {
   transform: translateY(-5px); /* Lift up effect on hover */
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
-
+.contacts{
+  text-decoration: none;
+}
 
 
 /* 📱 Mobile Responsiveness */
