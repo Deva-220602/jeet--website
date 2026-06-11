@@ -15,10 +15,7 @@ CREATE TABLE IF NOT EXISTS jeet (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );`;
 
-pool.query(createTableQuery, (err, results) => {
-    if (err) console.error("Table creation error:", err);
-    else console.log("Table 'jeet' verified/created successfully!");
-});
+
 
 
 // Aiven Online Database Connection Pool
@@ -29,6 +26,11 @@ const pool = mysql.createPool({
     database: process.env.DB_NAME,
     port: process.env.DB_PORT,
     ssl: { rejectUnauthorized: false } // This is strictly required for Aiven Cloud security
+});
+
+pool.query(createTableQuery, (err, results) => {
+    if (err) console.error("Table creation error:", err);
+    else console.log("Table 'jeet' verified/created successfully!");
 });
 
 // Middleware required to parse form data
