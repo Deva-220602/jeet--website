@@ -102,7 +102,10 @@ body {
 .smooth-image:hover {
   transform: scale(1.05); /* Zoom effect on hover */
 }
-
+ 
+.p{
+   margin-bottom: 20px;
+}
 /* Card Shadow Upgrades */
 .all {
   background: white;
