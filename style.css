@@ -103,10 +103,6 @@ body {
   transform: scale(1.05); /* Zoom effect on hover */
 }
  
-.para{
-   margin-bottom: 20px;
-   gap: 20px;
-}
 /* Card Shadow Upgrades */
 .all {
   background: white;
