@@ -90,9 +90,10 @@ body {
 }
 
  h1 {
-  border: 2px solid red;
-  background-color: crimson;
+  border: 2px solid rgb(216, 55, 55);
+  background-color: rgb(215, 57, 89);
   padding: 10px;
+  color: #fffafa;
   display: inline-block;
   border-radius: 8px; /* This softens the sharp corners */
 }
