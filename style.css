@@ -36,7 +36,7 @@ body {
   backdrop-filter: blur(10px); /* Modern frosted glass effect */
   padding: 15px 4%;
   display: flex;
-  justify-content: space-between;
+  justify-content:space-between;
   align-items: center;
   position: sticky;
   top: 0;
