@@ -12,8 +12,8 @@ body {
   background-color: #fffafa;
   background-image: 
     radial-gradient(at 0% 0%, rgb(236, 242, 242) 0px, transparent 50%),
-    radial-gradient(at 50% 0%, rgb(211, 36, 36) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, rgb(186, 22, 22) 0px, transparent 50%),
+    radial-gradient(at 50% 0%, rgb(251, 244, 244) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgb(255, 249, 249) 0px, transparent 50%),
     radial-gradient(at 50% 100%, rgb(234, 223, 226) 0px, transparent 50%);
   background-attachment: fixed;
   overflow-y: auto;
@@ -69,7 +69,7 @@ body {
 
 /* Hero Section */
 .three {
-  color: rgb(11, 103, 184);
+  color: rgb(0, 0, 0);
   position: relative; /* Changed from absolute for better mobile responsiveness */
   margin: 100px auto;
   max-width: 800px;
@@ -89,6 +89,15 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+ h1 {
+  border: 2px solid red;
+  background-color: crimson;
+  padding: 10px;
+  display: inline-block;
+  border-radius: 8px; /* This softens the sharp corners */
+}
+
+ 
 /* Grid layout for cards (Replaces former .four layout) */
 .four {
   display: grid;
