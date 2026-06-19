@@ -62,7 +62,7 @@ body {
 .menus {
   color: #222;
   display: flex;
-  gap: 3px;
+  gap: 2px;
   text-decoration: none;
   font-weight: 500;
 }
