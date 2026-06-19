@@ -9,15 +9,22 @@
 }
 
 body {
-  background-color: #d62121;
+  background-color: #fffafa;
   background-image: 
-    radial-gradient(at 0% 0%, hsla(177,93%,36%,1) 0px, transparent 50%),
-    radial-gradient(at 50% 0%, hsla(220,85%,57%,1) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, hsla(265,80%,60%,1) 0px, transparent 50%),
-    radial-gradient(at 50% 100%, hsla(177,90%,25%,1) 0px, transparent 50%);
+    radial-gradient(at 0% 0%, rgb(236, 242, 242) 0px, transparent 50%),
+    radial-gradient(at 50% 0%, rgb(211, 36, 36) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgb(186, 22, 22) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, rgb(234, 223, 226) 0px, transparent 50%);
   background-attachment: fixed;
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+.playfair-display-<uniquifier> {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
 }
 
   
@@ -62,7 +69,7 @@ body {
 
 /* Hero Section */
 .three {
-  color: aliceblue;
+  color: rgb(11, 103, 184);
   position: relative; /* Changed from absolute for better mobile responsiveness */
   margin: 100px auto;
   max-width: 800px;
