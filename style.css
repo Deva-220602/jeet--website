@@ -5,7 +5,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -20,12 +19,6 @@ body {
   overflow-x: hidden;
 }
 
-.playfair-display-<uniquifier> {
-  font-family: "Playfair Display", serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-}
 
   
 
@@ -91,11 +84,15 @@ body {
 
  h1 {
   border: 2px solid rgb(216, 55, 55);
-  background-color: rgb(215, 57, 89);
+  background-color: rgb(167, 7, 39);
   padding: 10px;
   color: #fffafa;
   display: inline-block;
   border-radius: 8px; /* This softens the sharp corners */
+  font-family:'merriweather ;
+}
+.para{
+  font-family: 'E B Garamond;
 }
 
  
