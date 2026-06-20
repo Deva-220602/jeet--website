@@ -55,6 +55,7 @@ body {
 .menus {
   color: #222;
   display: flex;
+  flex-wrap: wrap;
   gap: 1px;
   text-decoration: none;
   font-weight: 450;
