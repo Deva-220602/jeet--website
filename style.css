@@ -58,6 +58,7 @@ body {
   gap: 2px;
   text-decoration: none;
   font-weight: 500;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 /* Hero Section */
@@ -92,7 +93,7 @@ body {
   font-family:'merriweather ;
 }
 .para{
-  font-family: 'E B Garamond;
+  font-family: 'E B Garamond';
 }
 
  
