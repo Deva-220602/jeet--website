@@ -3,13 +3,24 @@ require('dotenv').config(); // Must be first
 const path = require('path');
 const express = require('express');
 const mysql = require('mysql2');
+const nodemailer = require('nodemailer'); // Added Nodemailer
 
 const app = express();
 
 // ======================
+// NODEMAILER SETUP
+// ======================
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
+    }
+});
+
+// ======================
 // DATABASE CONNECTION
 // ======================
-
 console.log("Database Configuration:");
 console.log({
     host: process.env.DB_HOST,
@@ -32,7 +43,6 @@ const pool = mysql.createPool({
 // ======================
 // TEST CONNECTION
 // ======================
-
 pool.getConnection((err, connection) => {
     if (err) {
         console.error("❌ MySQL Connection Failed:");
@@ -56,7 +66,6 @@ pool.getConnection((err, connection) => {
 // ======================
 // CREATE TABLE
 // ======================
-
 const createTableQuery = `
 CREATE TABLE IF NOT EXISTS jeet (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -82,7 +91,6 @@ pool.query(createTableQuery, (err, result) => {
 // ======================
 // SHOW TABLES
 // ======================
-
 pool.query("SHOW TABLES", (err, rows) => {
     if (err) {
         console.error("❌ Error fetching tables:");
@@ -97,7 +105,6 @@ pool.query("SHOW TABLES", (err, rows) => {
 // ======================
 // MIDDLEWARE
 // ======================
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(__dirname));
@@ -105,27 +112,19 @@ app.use(express.static(__dirname));
 // ======================
 // ROUTES
 // ======================
-
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'WEBSITE.html'));
 });
 
 // ======================
-// SAVE FORM DATA
+// SAVE FORM DATA & SEND EMAIL
 // ======================
-
 app.post('/submit-form', (req, res) => {
 
     const { name, company, contact, email, address } = req.body;
 
     console.log("\n--- New Form Submission ---");
-    console.log({
-        name,
-        company,
-        contact,
-        email,
-        address
-    });
+    console.log({ name, company, contact, email, address });
 
     const sqlQuery = `
         INSERT INTO jeet
@@ -151,10 +150,43 @@ app.post('/submit-form', (req, res) => {
             console.log("✅ Record inserted successfully!");
             console.log("Inserted ID:", result.insertId);
 
-            res.send(`
-                <h1>Success!</h1>
-                <p>Your data has been saved successfully.</p>
-            `);
+            // Configure Email Settings
+            const mailOptions = {
+                from: `"Website Form" <${process.env.EMAIL_USER}>`,
+                to: `${process.env.HR_EMAIL}, ${process.env.COLLEAGUE_EMAIL}`, // Sends to both addresses
+                subject: `New Lead: ${name} from ${company || 'N/A'}`,
+                html: `
+                    <h2>New Form Submission Logged (ID: ${result.insertId})</h2>
+                    <table border="1" cellpadding="10" style="border-collapse: collapse; font-family: sans-serif;">
+                        <tr style="background-color: #f2f2f2;"><td><strong>Field</strong></td><td><strong>Value</strong></td></tr>
+                        <tr><td><strong>Name</strong></td><td>${name}</td></tr>
+                        <tr><td><strong>Company Name</strong></td><td>${company || 'Not Provided'}</td></tr>
+                        <tr><td><strong>Contact Number</strong></td><td>${contact}</td></tr>
+                        <tr><td><strong>Email ID</strong></td><td>${email}</td></tr>
+                        <tr><td><strong>Address</strong></td><td>${address || 'Not Provided'}</td></tr>
+                    </table>
+                `
+            };
+
+            // Send the Email Alert
+            transporter.sendMail(mailOptions, (mailErr, info) => {
+                if (mailErr) {
+                    console.error("❌ Email Failed to Send:");
+                    console.error(mailErr);
+                    // We still show success to the user because the data was saved to MySQL
+                    return res.send(`
+                        <h1>Success!</h1>
+                        <p>Your data has been saved, but email notification failed.</p>
+                    `);
+                }
+
+                console.log("✅ Email sent successfully to HR and Colleague:", info.response);
+                
+                res.send(`
+                    <h1>Success!</h1>
+                    <p>Your data has been saved successfully and shared with the team.</p>
+                `);
+            });
         }
     );
 });
@@ -162,7 +194,6 @@ app.post('/submit-form', (req, res) => {
 // ======================
 // START SERVER
 // ======================
-
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
