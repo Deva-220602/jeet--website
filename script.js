@@ -3,8 +3,23 @@ require('dotenv').config(); // Must be first
 const path = require('path');
 const express = require('express');
 const mysql = require('mysql2');
+const nodemailer = require('nodemailer'); // 1. Added Nodemailer module
 
 const app = express();
+
+// ======================
+// NODEMAILER SETUP
+// ======================
+// 2. Configured the email sender using secure environment variables
+const transporter = nodemailer.createTransport({
+    host: '://gmail.com',
+    port: 465,
+    secure: true, // Use SSL/TLS
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
+    }
+});
 
 // ======================
 // DATABASE CONNECTION
@@ -111,7 +126,7 @@ app.get('/', (req, res) => {
 });
 
 // ======================
-// SAVE FORM DATA
+// SAVE FORM DATA & SEND EMAIL
 // ======================
 
 app.post('/submit-form', (req, res) => {
@@ -151,10 +166,37 @@ app.post('/submit-form', (req, res) => {
             console.log("✅ Record inserted successfully!");
             console.log("Inserted ID:", result.insertId);
 
+            // 3. Send immediate success response to stop browser loading spin
             res.send(`
                 <h1>Success!</h1>
                 <p>Your data has been saved successfully.</p>
             `);
+
+            // 4. Construct the team notification email layout
+            const mailOptions = {
+                from: `"Website Form" <${process.env.EMAIL_USER}>`,
+                to: `${process.env.HR_EMAIL}, ${process.env.COLLEAGUE_EMAIL}`, 
+                subject: `New Lead: ${name} from ${company || 'N/A'}`,
+                html: `
+                    <h2>New Form Submission Logged (ID: ${result.insertId})</h2>
+                    <table border="1" cellpadding="10" style="border-collapse: collapse; font-family: sans-serif;">
+                        <tr style="background-color: #f2f2f2;"><td><strong>Field</strong></td><td><strong>Value</strong></td></tr>
+                        <tr><td><strong>Name</strong></td><td>${name}</td></tr>
+                        <tr><td><strong>Company Name</strong></td><td>${company || 'Not Provided'}</td></tr>
+                        <tr><td><strong>Contact Number</strong></td><td>${contact}</td></tr>
+                        <tr><td><strong>Email ID</strong></td><td>${email}</td></tr>
+                        <tr><td><strong>Address</strong></td><td>${address || 'Not Provided'}</td></tr>
+                    </table>
+                `
+            };
+
+            // 5. Send email quietly in the background
+            transporter.sendMail(mailOptions, (mailErr, info) => {
+                if (mailErr) {
+                    return console.error("❌ Background Email Failed to Send:", mailErr);
+                }
+                console.log("✅ Background notification email sent to team successfully!", info.response);
+            });
         }
     );
 });
@@ -168,4 +210,3 @@ const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log(`🚀 Server running on port ${PORT}`);
 });
-
