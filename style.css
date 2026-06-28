@@ -70,7 +70,7 @@ body {
 
 
 /* Media Query */
-    @media screen and (max-width:600px){
+    @media screen and (max-width:500px){
       .menu-toggle{
   display: block;
 }
