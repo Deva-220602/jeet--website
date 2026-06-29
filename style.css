@@ -81,36 +81,56 @@ body {
     /* side-bar */
 
     .side-bar{
-      background-color: rgb(32, 32, 188);
-      width: 40%;
+      background-color: whitesmoke;
+      width: 50%;
       height: 100%;
       position: fixed;
       z-index: 5;
       top: 0;
-      margin-bottom: 20px;
-      padding-left: 20px;
-      color: #fffafa;
+      margin-bottom: 20%;
+      padding-left: 50px;
+      color: black;
       display: none;
+      transition: 2s;
+      
+    
   
 
     }
     .side-bar a{
-      color: white;
+      color: rgb(13, 13, 13);
       text-decoration: none;
+      font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    
     }
   
 /* Hero Section */
-.three {
-  color: rgb(0, 0, 0);
-  position: relative; /* Changed from absolute for better mobile responsiveness */
-  margin: 100px auto;
-  max-width: 800px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
+.footer {
+  background-color: rgb(11, 6, 57);
+  padding: 3px;
+  color: #fffafa;
+  margin-top: 20px;
 }
+
+
+.quicklinks a{
+  text-decoration: none;
+  color: #fffafa;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+.footer a{
+  position: relative;
+  bottom: 2px;
+  color: #fffafa;
+}
+
+
+
+ 
+
 
 /* Section backgrounds */
 #About, #Service, #Registration {
@@ -172,8 +192,8 @@ body {
 }
 .contacts{
   text-decoration: none;
-}
 
 
 /* 📱 Mobile Responsiveness */
 @media screen and (max-width: 700px) 
+
