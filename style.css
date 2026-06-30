@@ -299,7 +299,6 @@ body {
   .loop{
       display: block;
     height: auto;
-    max-height: 400px; /* Adjust height based on your layout design */
     object-fit: contain;
     
     /* Animation settings */
