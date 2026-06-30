@@ -313,6 +313,14 @@ body {
         transform: translateX(-100%); /* Moves all the way out past the far left corner */
     }
 }
+@media (max-width: 768px) {
+    .images {
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        background-position: center !important;
+    }
+}
+
 
 
  
