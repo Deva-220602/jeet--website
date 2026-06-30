@@ -314,7 +314,7 @@ body {
     }
 }
   .images{
-    background-image: url("service image.jpeg");
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbbgHHydj3TScvMdPOG1S3SfiPE6AQJap5DVFYaHuJbA&s=10");
     background-repeat: no-repeat;  /* Prevents the image from tiling */
     background-size: cover;        /* Stretches/scales the image to fit the container */
     background-position: center; 
