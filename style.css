@@ -38,10 +38,10 @@ body {
   flex-wrap: wrap;
 }
 #About{
-  color:#fffafa;
+  color:#000;
 }
 #para{
-  color: #fffafa;
+  color:white;
 }
 .marketing{
   display: flex;
@@ -50,7 +50,7 @@ body {
 }
 
 .marketing-container-1 div{
-  background-color:hsla(189, 67%, 50%, 0.411);
+  background-color:hsla(189, 67%, 50%, 0.758);
   border-radius: 5px;
   flex-wrap: wrap;
   margin-left: 20px;
@@ -66,7 +66,7 @@ body {
   backdrop-filter: blur(5px);
   padding: 20px;
   border-radius: 10px;
-  color: white;
+  color: black;
 }
  .marketing{
   backdrop-filter: blur(5px);
@@ -80,7 +80,7 @@ body {
   border: 1px ;
   display: flex;
   flex-wrap: wrap;
-  color: #fffafa;
+  color:black;
  }
  .core-benefits-1{
   backdrop-filter: blur(5px);
@@ -96,7 +96,7 @@ body {
  }
 
  .core-benefits-1 div{
-  background-color: rgba(18, 96, 141, 0.658);
+  background-color: rgba(18, 96, 141, 0.895);
    border-radius: 5px;
   margin-left: 20px;
   color:white;
@@ -163,6 +163,11 @@ body {
   border-radius: 10px;
   border: 1px ;
   }
+  .about-1{
+    background-color:rgba(38, 76, 199, 0.795); 
+    border-radius: 8px; 
+    padding: 20px;
+  }
   
   .promises{
    background-color: rgba(255, 255, 255, 0.1);
@@ -170,7 +175,7 @@ body {
   padding: 20px;
   border-radius: 10px;
   border: 1px ;
-  color: #fffafa;
+  color: black;
   }
   .points-1{
    flex: 1 1 calc(25% - 20px); /* Base width is 25% on desktop, minused by the gap */
@@ -198,7 +203,7 @@ body {
   }
   .coreheading{
      backdrop-filter: blur(5px);
-    color: #ccbdbd;
+    color: black;
   }
   .corepoints{
      backdrop-filter: blur(5px);
@@ -227,7 +232,7 @@ body {
   }
   .mission{
      backdrop-filter: blur(5px);
-    color: #fffafa;
+    color:black;
   }
   .mission-points{
       backdrop-filter: blur(5px);
@@ -255,11 +260,11 @@ body {
   }
   #Framework{
      backdrop-filter: blur(5px);
-    color: #fffafa;
+    color: black;
   }
   .expalnation{
     backdrop-filter: blur(5px);
-    color: #fffafa;
+    color: black;
   }
   .expcontainer{
      backdrop-filter: blur(5px);
@@ -287,12 +292,12 @@ body {
 
   }
   #Service{
-    color: #fffafa;
+    color: black;
     backdrop-filter: blur(5px);
   }
   .weserve{
     backdrop-filter: blur(5px);
-    color: #fffafa;
+    color: black;
   }
   
 
@@ -409,11 +414,12 @@ body {
  
 
 
-.para{
+#para{
   font-family: 'E B Garamond';
 }
+
 #Registration{
-  color: #fffafa;
+  color: black;
 }
  
 /* Grid layout for cards (Replaces former .four layout) */
