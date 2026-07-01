@@ -55,9 +55,12 @@ body {
   flex-wrap: wrap;
   margin-left: 20px;
   color: white;
+  padding: 20px;
 }
 .marketing-container-2{
   flex-wrap: wrap;
+  padding-top: 10%;
+  border-radius: 10px;
 }
 .digitalmarketing{
   backdrop-filter: blur(5px);
@@ -291,34 +294,7 @@ body {
     backdrop-filter: blur(5px);
     color: #fffafa;
   }
-  .images{
-      display: flex;
-    width: max-content;
-    animation: loopLeft 20s linear infinite;
-  }
-  .loop{
-      display: block;
-    height: auto;
-    object-fit: contain;
-    
-    /* Animation settings */
-    position: relative;
-    animation: cornerToCornerLeft 15s linear infinite;
-  }
-  @keyframes cornerToCornerLeft {
-    0% {
-        transform: translateX(100vw); /* Starts completely hidden outside the far right corner */
-    }
-    100% {
-        transform: translateX(-100%); /* Moves all the way out past the far left corner */
-    }
-}
-  .images{
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbbgHHydj3TScvMdPOG1S3SfiPE6AQJap5DVFYaHuJbA&s=10");
-    background-repeat: no-repeat;  /* Prevents the image from tiling */
-    background-size: cover;        /* Stretches/scales the image to fit the container */
-    background-position: center; 
-  }
+  
 
 
  
@@ -361,8 +337,9 @@ body {
    .menus{
      display: none;
    }
-    }
-    /* side-bar */
+   .marketing-image{
+    width:400px; height: 400px;
+   }
 
     .side-bar{
       background-color: whitesmoke;
