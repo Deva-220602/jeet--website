@@ -396,6 +396,9 @@ body {
   bottom: 2px;
   color: #fffafa;
 }
+.button{
+  padding: 5px;
+}
 
 
 
@@ -459,7 +462,7 @@ body {
 }
 .contacts a{
   text-decoration: none;
-  color: #fffafa;
+  color: black;
 }
 
 /* 📱 Mobile Responsiveness */
